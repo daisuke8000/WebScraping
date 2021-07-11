@@ -4,6 +4,7 @@ from pathlib import Path
 
 import csv
 import config
+import os
 import requests
 import sys
 import time
@@ -110,6 +111,9 @@ if __name__ == '__main__':
     tag_attendees = get_event_attendees(a_link)
     attendee_dct_list = attendee_list_forming(tag_attendees)
 
+    # output存在確認
+    if not os.path.exists('../output'):
+        os.mkdir('../output')
     # 親ディレクトリ取得
     path = Path(__file__).parent
     # Path連結
