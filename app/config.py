@@ -2,4 +2,4 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-MIRAMEET_CONNPASS_URL = os.getenv('MIRAMEET_CONNPASS_URL')
+CONNPASS_GROUP_URL = os.getenv('CONNPASS_GROUP_URL')
