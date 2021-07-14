@@ -8,18 +8,24 @@ $ python -m venv .venv
 ```
 
 2. activate environment
+- Terminal
 ```shell
 $ source .venv/bin/activate
 ```
+- PowerShell
+```shell
+$ .\.venv\Scripts\Activate.ps1
+```
 
-3. use package install in requirements.txt
+3. change directory app use package install in requirements.txt
 ```shell
 $ pip install -r requirements.txt
+$ cd app
 ```
 
 4. run
 ```shell
-$ python app/main.py
+$ python main.py
 ```
 
 5. Interactive　shell input eventID or eventURL
@@ -32,5 +38,5 @@ Please input URL or eventID >>
 
 6. csv output
 ```
-webscp/output/eventTitle.csv
+output/eventTitle.csv
 ```
