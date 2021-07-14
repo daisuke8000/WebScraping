@@ -30,7 +30,7 @@ $ python main.py
 
 5. Interactive　shell input eventID or eventURL
 ```python
-Please input URL or eventID >>
+Please input eventPageURL or eventID >>
 # example
 # eventID: 123456
 # URL: http://example.com

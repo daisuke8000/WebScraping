@@ -9,7 +9,7 @@ import requests
 import sys
 import time
 
-
+# .env設定を確認
 MIRAMEET_CONNPASS_URL = config.MIRAMEET_CONNPASS_URL
 
 
@@ -48,7 +48,8 @@ def get_event_attendees(attendees_link):
         tag_attendees_info_list = soup.findAll('div', class_='participation_table_area mb_20')
         for i in tag_attendees_info_list:
             tag_attendees_info.extend(i.findAll('a'))
-            print(tag_attendees_info)
+            # デバッグ用
+            # print(tag_attendees_info)
     # 一致タグ、クラス名が存在しなかった際のエラーハンドリング
     except AttributeError as e:
         print(e)
@@ -84,24 +85,27 @@ def output_for_csv(f_path, dct_list):
         with open(f_path, 'w', encoding='utf-8-sig') as f:
             writer = csv.DictWriter(f, fieldnames=labels)
             writer.writeheader()
+            print(">>>\n")
             for elem in dct_list:
                 print(elem)
                 writer.writerow(elem)
+            print("\n>>>")
     except IOError as e:
+        # ファイルパス名のエラーなど
         print("I/O error")
         print(e)
         sys.exit(1)
 
 
 if __name__ == '__main__':
-    val = input("Please input URL or eventID >> ")
+    val = input("Please input eventPageURL or eventID >> ")
     while val:
         if val.isdigit():
             print("event_id: " + val)
             url = MIRAMEET_CONNPASS_URL + val
             break
         elif parse.urlparse(val):
-            print("URL: " + val)
+            print("eventPageURL: " + val)
             url = val
             break
         else:
