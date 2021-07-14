@@ -10,7 +10,7 @@ import sys
 import time
 
 # .env設定を確認
-MIRAMEET_CONNPASS_URL = config.MIRAMEET_CONNPASS_URL
+CONNPASS_GROUP_URL = config.CONNPASS_GROUP_URL
 
 
 # イベントページをスクレイピングして、イベントタイトルとイベント参加者一覧のリンク返す。
@@ -102,7 +102,7 @@ if __name__ == '__main__':
     while val:
         if val.isdigit():
             print("event_id: " + val)
-            url = MIRAMEET_CONNPASS_URL + val
+            url = CONNPASS_GROUP_URL + val
             break
         elif parse.urlparse(val):
             print("eventPageURL: " + val)
