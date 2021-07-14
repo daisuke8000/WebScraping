@@ -33,7 +33,7 @@ $ python main.py
 Please input eventPageURL or eventID >>
 # example
 # eventID: 123456
-# URL: http://example.com
+# URL: http://example.com/event/{eventID}
 ```
 
 6. csv output
