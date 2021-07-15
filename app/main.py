@@ -63,8 +63,8 @@ def attendee_list_forming(attendee):
     attendee_list = []
     for content in attendee:
         if len(content.get_text().replace('\n', '')) != 0:
-            d = {'Name': None, 'github': None, 'twitter': None, 'facebook': None}
-            d['Name'] = content.get_text()
+            d = {'name': None, 'github': None, 'twitter': None, 'facebook': None}
+            d['name'] = content.get_text()
             attendee_list.append(d)
         elif 'github' in content.get('href'):
             d['github'] = content.get('href')
@@ -80,7 +80,7 @@ def attendee_list_forming(attendee):
 
 def output_for_csv(f_path, dct_list):
     # csv_header
-    labels = ['Name', 'github', 'twitter', 'facebook']
+    labels = ['name', 'github', 'twitter', 'facebook']
     try:
         with open(f_path, 'w', encoding='utf-8-sig') as f:
             writer = csv.DictWriter(f, fieldnames=labels)
